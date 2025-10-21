@@ -5,7 +5,9 @@ description = "Simple encoder application with CLI functionality"
 authors = [
     { name = "Josh Winchester", email = "jwinchester23@gmail.com" }
 ]
-dependencies = []
+dependencies = [
+    "pytest>=8.4.2",
+]
 readme = "README.md"
 requires-python = ">= 3.8"
 
