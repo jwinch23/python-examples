@@ -1,7 +1,7 @@
 [project]
 name = "encoder"
 version = "0.1.0"
-description = "Add your description here"
+description = "Simple encoder application with CLI functionality"
 authors = [
     { name = "Josh Winchester", email = "jwinchester23@gmail.com" }
 ]
@@ -15,7 +15,9 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "pytest>=8.4.2",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true

@@ -18,5 +18,3 @@ def run_length_encode(s):
     encoded.append(s[-1] + str(count))
     print(f"Appending final {s[-1]}{count}")
     return ''.join(encoded)
-
-print(run_length_encode("ABCD"))
