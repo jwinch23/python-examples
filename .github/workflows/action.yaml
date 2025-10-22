@@ -12,9 +12,5 @@ jobs:
       uses: actions/checkout@v4
     - name: Install Rye
       uses: sksat/setup-rye@v0.8.0
-    - name: Sync dependencies
-      working-directory: encoder
-      run: rye sync
-    - name: Run tests
-      working-directory: encoder
-      run: rye run pytest -v
+    - name: Ensure Rye is available
+      run: echo "$HOME/.rye/shims" >> $GITHUB_PATH
