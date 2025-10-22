@@ -10,7 +10,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Install Rye
-      uses: sksat/setup-rye@v0.8.0
+    - name: Installing Rye
+      uses: eifinger/setup-rye@v4
+      with:
+        version: '0.12.0'
     - name: Ensure Rye is available
       run: echo "$HOME/.rye/shims" >> $GITHUB_PATH
