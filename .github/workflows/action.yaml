@@ -1,0 +1,24 @@
+name: Encoder test action
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Installing Rye
+      uses: eifinger/setup-rye@v4
+      with:
+        version: '0.12.0'
+    - name: Ensure Rye is available
+      run: echo "$HOME/.rye/shims" >> $GITHUB_PATH
+    - name: Sync dependencies
+      working-directory: encoder
+      run: rye sync
+    - name: Run tests
+      working-directory: encoder
+      run: rye run pytest -v
