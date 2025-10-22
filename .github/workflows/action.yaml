@@ -13,9 +13,10 @@ jobs:
     - name: Install Rye
       uses: sksat/setup-rye@v0.8.0
     - name: Change directories
-      run: |
+      run: 
         cd encoder
-        rye run python encoder.py "aaabbc"
+    - name: Validate Rye Installation
+      run: rye --version
     - name: Sync dependencies
       run: rye sync
     - name: Run tests
