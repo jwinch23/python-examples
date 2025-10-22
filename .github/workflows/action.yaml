@@ -12,9 +12,6 @@ jobs:
       uses: actions/checkout@v4
     - name: Install Rye
       uses: sksat/setup-rye@v0.8.0
-    - name: Validate Rye Installation
-      working-directory: encoder
-      run: rye --version
     - name: Sync dependencies
       working-directory: encoder
       run: rye sync
