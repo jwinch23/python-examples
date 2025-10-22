@@ -10,10 +10,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Install Rye
-      uses: sksat/setup-rye@v0.8.0
     - name: Change directories
       run: cd encoder/
+    - name: Validate directories
+      run: ls
+    - name: Install Rye
+      uses: sksat/setup-rye@v0.8.0
     - name: Validate Rye Installation
       run: rye --version
     - name: Sync dependencies
