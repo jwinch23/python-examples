@@ -10,13 +10,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Validate directory
-      run: ls
-    - name: Change directories
-      run: cd encoder/
-    - name: Validate directories
-      run: ls
-    - name: Change directories
-      run: cd encoder/
-    - name: Validate directories
-      run: ls
+    - name: Install Rye
+      uses: sksat/setup-rye@v0.8.0
+    - name: Validate Rye Installation
+      working-directory: encoder
+      run: rye --version
+    - name: Sync dependencies
+      working-directory: encoder
+      run: rye sync
+    - name: Run tests
+      working-directory: encoder
+      run: rye run pytest -v
