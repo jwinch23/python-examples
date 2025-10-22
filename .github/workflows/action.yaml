@@ -13,6 +13,10 @@ jobs:
     - name: Validate directory
       run: ls
     - name: Change directories
-      run: cd encoder/encoder
+      run: cd encoder/
+    - name: Validate directories
+      run: ls
+    - name: Change directories
+      run: cd encoder/
     - name: Validate directories
       run: ls
