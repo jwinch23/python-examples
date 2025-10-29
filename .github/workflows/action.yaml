@@ -22,3 +22,6 @@ jobs:
         echo $PATH
         which rye
         rye toolchain list
+    - name: Sync dependencies
+      working-directory: encoder
+      run: rye sync
