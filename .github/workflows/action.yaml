@@ -10,18 +10,23 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Installing Rye
-      uses: eifinger/setup-rye@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
       with:
-        version: '0.12.0'
-    - name: Ensure Rye is available
-      run: echo "$HOME/.rye/shims" >> $GITHUB_PATH
-    - name: Rye debug info
+        python-version-file: encoder/.python-version
+    - name: Install uv
       run: |
-        rye --version
-        echo $PATH
-        which rye
-        rye toolchain list
+        python -m pip install --upgrade pip
+        python -m pip install uv
+    - name: UV debug info
+      run: |
+        uv --version
+        which uv
     - name: Sync dependencies
       working-directory: encoder
-      run: rye sync
+      run: |
+        uv pip compile pyproject.toml -o uv.lock
+        uv pip sync uv.lock
+    - name: Run tests
+      working-directory: encoder
+      run: uv run pytest -v 
